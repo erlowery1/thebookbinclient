@@ -1,0 +1,54 @@
+/*this will target our jumbotron class
+setting header to blue and text to white*/
+.jumbotron{
+    background-color: #aac8c8;
+}
+
+/*makes our buttons farther apart*/
+.top-buffer {
+ margin-top: 100px;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+#small-logo{
+  height: 100px;
+}
+
+.logo {
+  width: 150px;
+  height: 120px;
+  content: url(logo.jpg);
+}
+
+.logoHeader {
+  height: 120px;
+  vertical-align: middle;
+  text-align: center; 
+}
+
+.floatLeft { float: left; }
+
+.floatRight { float: right; }
+
+
+/*!
+ * Start Bootstrap - Heroic Features (https://startbootstrap.com/template/heroic-features)
+ * Copyright 2013-2020 Start Bootstrap
+ * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-heroic-features/blob/master/LICENSE)
+ */
+ body {
+    padding-top: 56px;
+  }

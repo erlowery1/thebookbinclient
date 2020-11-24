@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The Book Bin</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/heroic-features.css" rel="stylesheet">
+
+</head>
+<!--loading js-->
+<script src="https://www.kryogenix.org/code/browser/sorttable/sorttable.js"></script>
+<script type = "text/javascript" src = "./resources/scripts/index.js"></script>
+<!--on load, get all the books in the database-->
+<body >
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">The Book Bin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header style = "background-color: #aac8c8; height: 275px;" class = "jumbotron my-4 text-center">
+      <header>
+        <img id="img1" src = "./resources/images/logo.png" height="200px"/><span id="txt" style = "font: normal 50px georgia !important;">Selling a Book</span><img id="img2" src = "./resources/images/logo.png" height="200px"/>
+      </header> 
+    </header>
+
+    <!-- Page Content begins here -->
+
+    <!--create a table that prints out the list of books here-->
+    <!--div for the rows-->
+        <!--we are having 2 columns so its 6 wide, cause it has to add to 12-->
+        <div class = "col-md-12 text-center ">
+            <!-- sort and search-->
+              <!-- creating search box -->
+                  <label for = "search">Enter ISBN or Title</label>
+                  <input type = "text" name = "search" id = "search"/>
+                  <label for = "search">Enter Customer Name</label>
+                  <input type = "text" name = "custName" id = "custName"/>
+                  <input type = "submit" value = "Total" onclick="getTotal()" style="color: black">
+                  <label for = "getChange">Enter Amount of Money Received</label>
+                  <input type = "text" name = "getChange" id = "getChange"/>
+                  <input type = "submit" value = "Calculate Change" onclick="getChange()" style="color: black">
+        </div> 
+        <div class = "col-md-12 text-center ">
+          <input type = "submit" value = "Confirm Checkout" onclick="bookTotal()" style="background-color: green;">
+          <form action="./index.html">
+            <input type="submit" value="Deny Checkout" style="background-color: #cd2532;"/>
+        </form>
+        </div>
+                  
+                  
+       
+        <div class = "col-md-6 ">
+            <!-- sort and search-->
+              <!-- creating search box -->
+                  <h1>Total: <div id = "total"></div></h1>
+        </div>
+        <div class = "col-md-6 ">
+          <!-- sort and search-->
+            <!-- creating search box -->
+                <h1>Change: <div id = "change"></div></h1>
+      </div>
+        <!--styles labels-->
+        <style type="text/css">
+          label {
+              font: normal 25px georgia !important;
+          }
+      </style>
+        <!---styles the buttons-->
+        <style>
+          input[type="submit"]{
+              /* change these properties to whatever you want */
+              background-color: #c3d6c2;
+              color: #ffffff;
+              border-radius: 100px;
+              font-size: 20px;
+              font: normal 25px georgia !important;
+          }
+          </style>
+    </div>
+    
+    <!-- Page Content ends here -->
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; The Book Bin 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>The Book Bin</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/heroic-features.css" rel="stylesheet">
+
+</head>
+<!--loading js-->
+<script type = "text/javascript" src = "./resources/scripts/index.js"></script>
+<body onload = "getBooksToEdit()">
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">The Book Bin</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="./index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header style = "background-color: #aac8c8; height: 275px;" class = "jumbotron my-4 text-center">
+      <header>
+        <img id="img1" src = "./resources/images/logo.png" height="200px"/><span id="txt" style = "font: normal 50px georgia !important;">Edit a Book</span><img id="img2" src = "./resources/images/logo.png" height="200px"/>
+      </header> 
+    </header>
+<!--styles labels-->
+<style type="text/css">
+  label {
+      font: normal 25px georgia !important;
+  }
+</style>
+<!---styles the buttons-->
+<style>
+  input[type="submit"]{
+      /* change these properties to whatever you want */
+      background-color: #c3d6c2;
+      color: #000;
+      border-radius: 100px;
+      font-size: 20px;
+      font: normal 25px georgia !important;
+  }
+  </style>
+    <!-- Page Content begins here -->
+
+    <!--create a table that prints out the list of books here-->
+    <!--div for the rows-->
+    <div class ="row">
+      <div class = "col-md-12 text-center">
+          <div>
+              <!--labels, textboxes, and a submit button for book data-->
+              <form onsubmit="return false;" method = "post">
+                <div >
+                  <label for = "isbnEdit">ISBN</label>
+                  <input type = "number" name = "isbnEdit" id = "isbnEdit"/>
+                  <label for = "titleEdit">Book Title</label>
+                  <input type = "text" name = "titleEdit" id = "titleEdit"/>
+                  <label for = "authorEdit">Book Author</label>
+                  <input type = "text" name = "authorEdit" id = "authorEdit"/>
+                </div>
+                <div>
+
+                  <label for = "genreEdit">Genre</label>
+                  <input type = "text" name = "genreEdit" id = "genreEdit"/>
+                  <label for = "priceEdit">Price</label>
+                  <input type = "number" step = "any" name = "priceEdit" id = "priceEdit"/>
+                </div>
+            </form>
+          </div>
+      </div>
+    <div class ="row">
+      <div class = "col-md-6 ">
+          <!-- creating search box -->
+              <label for = "search">Search by ISBN or Title</label>
+              <input type = "text" name = "search" id = "search"/>
+              <input type = "submit" value = "Submit" onclick="searchEdit()">
+    </div>
+        <div class = "col-md-6 text-right">
+            <input type = "submit" value = "Show All Books" onclick="getBooksToEdit()">
+      </div>
+        <div class = "col-md-12">
+            <div id = "edit">
+
+            </div>
+        </div>
+        
+    </div>
+    <!-- Page Content ends here -->
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; The Book Bin 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
