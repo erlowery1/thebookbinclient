@@ -12,7 +12,7 @@ function getBooks(){
         /*adding the table row and table headers*/
         html +="<tr style=\"background-color:#aac8c8;\"><th onclick = \"sortTable(0)\">ID</th><th onclick = \"sortTable(1)\">ISBN</th><th onclick = \"sortTable(2)\">Title</th><th onclick = \"sortTable(3)\">Author</th><th onclick = \"sortTable(4)\">Genre</th><th onclick = \"sortTable(5)\">Price</th></tr>"
         json.forEach((book) => {
-            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + book.price + "</td>";
+            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + Math.round(book.price * 100)/100 + "</td>";
         });
         html += "</table>";
         //target that html element and set it equal to html
@@ -36,7 +36,7 @@ function getTransactions(){
         /*adding the table row and table headers*/
         html +="<tr style=\"background-color:#aac8c8;\"><th onclick = \"sortTable(0)\">ID</th><th onclick = \"sortTable(1)\">ISBN</th><th onclick = \"sortTable(2)\">Title</th><th onclick = \"sortTable(3)\">Author</th><th onclick = \"sortTable(4)\">Genre</th><th onclick = \"sortTable(5)\">Price</th><th onclick = \"sortTable(5)\">Name</th><th onclick = \"sortTable(5)\">Date</th></tr>"
         json.forEach((book) => {
-            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + book.price + "</td>" + "<td>" + book.name + "</td>" + "<td>" +  book.date + "</td>";
+            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + Math.round(book.price * 100)/100 + "</td>" + "<td>" + book.name + "</td>" + "<td>" +  book.date + "</td>";
         });
         html += "</table>";
         //target that html element and set it equal to html
@@ -64,7 +64,7 @@ function getBooksToDelete(){
         html +="<tr style=\"background-color:#aac8c8;\"><th onclick = \"sortTable(0)\">ID</th><th onclick =\"sortTable(1)\">ISBN</th><th onclick =\"sortTable(2)\">Title</th><th onclick =\"sortTable(3)\">Author</th><th onclick =\"sortTable(4)\">Genre</th><th onclick =\"sortTable(5)\">Price</th><th>Delete</th></tr>"
         //add each book to the table, including a delete button that links to the delete book method
         json.forEach((book) => {
-            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+  "$" + book.price + "</td>" + 
+            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+  "$" + Math.round(book.price * 100)/100 + "</td>" + 
             "<td><button onclick = \"deleteBook("+book.id+")\">Delete</button></td></tr>";
         });
         html += "</table>";
@@ -103,7 +103,7 @@ else{ //add book to inventory
             "Content-Type": 'application/json',
         }, //sending our data
         body:JSON.stringify({
-            isbn: parseInt(bookIsbn),
+            isbn: bookIsbn,
             title: bookTitle,
             author: bookAuthor,
             genre: bookGenre,
@@ -157,7 +157,7 @@ function search(){
         html +="<tr style=\"background-color:#aac8c8;\"><th onclick = \"sortTable(0)\">ID</th><th onclick =\"sortTable(1)\">ISBN</th><th onclick =\"sortTable(2)\">Title</th><th onclick =\"sortTable(3)\">Author</th><th onclick =\"sortTable(4)\">Genre</th><th onclick =\"sortTable(5)\">Price</th>";
         json.forEach((book) => {
             if (book.title.toLowerCase() == search || book.isbn == search)(
-                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + book.price + "</td>"
+                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + Math.round(book.price * 100)/100 + "</td>"
             )
             
         });
@@ -188,7 +188,7 @@ function searchDelete(){
         //add each book to the table, including a delete button that links to the delete book method
         json.forEach((book) => {
             if (book.title.toLowerCase() == search || book.isbn == search)(
-                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+ "$" + book.price + "</td>" + 
+                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+ "$" + Math.round(book.price * 100)/100 + "</td>" + 
                 "<td><button onclick = \"deleteBook("+book.id+")\">Delete</button></td></tr>"
             )
         });
@@ -389,8 +389,8 @@ function getBooksToEdit(){
         html +="<tr style=\"background-color:#aac8c8;\"><th onclick = \"sortTable(0)\">ID</th><th onclick =\"sortTable(1)\">ISBN</th><th onclick =\"sortTable(2)\">Title</th><th onclick =\"sortTable(3)\">Author</th><th onclick =\"sortTable(4)\">Genre</th><th onclick =\"sortTable(5)\">Price</th><th>Edit</th></tr>"
         //add each book to the table, including a delete button that links to the delete book method
         json.forEach((book) => {
-            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+ "$" + book.price + "</td>" + 
-            "<td><button onclick = \"editBook("+book.id+", "+book.isbn+", \'"+book.title+"\', \'"+book.author+"\', \'"+book.genre+"\', \'"+book.price+"\')\">Edit</button></td></tr>";
+            html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+ "$" + Math.round(book.price * 100)/100 + "</td>" + 
+            "<td><button onclick = \"editBook("+book.id+", \'"+book.isbn+"\', \'"+book.title+"\', \'"+book.author+"\', \'"+book.genre+"\', \'"+book.price+"\')\">Edit</button></td></tr>";
             //, "+book.title+", "+book.genre+", "+book.price+"
         });
         html += "</table>";
@@ -422,7 +422,7 @@ function searchEdit(){
         json.forEach((book) => {
             if (book.title.toLowerCase() == search || book.isbn == search)(
                 html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+ "$" + book.price + "</td>" + 
-                "<td><button onclick = \"editBook("+book.id+", "+book.isbn+", \'"+book.title+"\', \'"+book.author+"\', \'"+book.genre+"\', \'"+book.price+"\')\">Edit</button></td></tr>"
+                "<td><button onclick = \"editBook("+book.id+", \'"+book.isbn+"\', \'"+book.title+"\', \'"+book.author+"\', \'"+book.genre+"\', \'"+book.price+"\')\">Edit</button></td></tr>"
             )
         });
         html += "</table>";
@@ -484,7 +484,7 @@ function breakdown(){
 //edits a book in inventory
 function editBook(id, isbn, title, author, genre, price){
     //pass id in with url
-    var editBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books" + id;
+    const editBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books/" + id;
     //const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     //set all text boxes to variables
     var bookIsbn = document.getElementById("isbnEdit").value;
@@ -525,14 +525,14 @@ function editBook(id, isbn, title, author, genre, price){
         method: "PUT",
         headers: {
             "Accept": 'application/json',
-            "Content-Type": 'application/json'
-        }, 
-        body: JSON.stringify({
-            isbn: parseInt(bookIsbn),
+            "Content-Type": 'application/json',
+        }, //sending our data
+        body:JSON.stringify({
+            isbn: bookIsbn,
             title: bookTitle,
             author: bookAuthor,
             genre: bookGenre,
-            price: parseFloat(bookPrice),
+            price: parseFloat(bookPrice)
         })
     })
     .then((response)=>{
