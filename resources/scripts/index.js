@@ -1,6 +1,7 @@
 //gets all books from inventory and puts them in a table format
 function getBooks(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     fetch(allBooksApiUrl).then(function(response){
         console.log(response);
         //turn response into a json object we can deal with 
