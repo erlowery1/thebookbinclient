@@ -24,7 +24,8 @@ function getBooks(){
 
 //gets all books from inventory and puts them in a table format
 function getTransactions(){
-    const allSalesApiUrl = "https://localhost:5001/api/books/sales";
+    //const allSalesApiUrl = "https://localhost:5001/api/books/sales";
+    const allSalesApiUrl = "https://thebookbinapi.herokuapp.com/api/books/sales";
     fetch(allSalesApiUrl).then(function(response){
         console.log(response);
         //turn response into a json object we can deal with 
@@ -48,7 +49,8 @@ function getTransactions(){
 
 //gets all books from inventory and prints them out, along with a corresponding delete button
 function getBooksToDelete(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
 
     //whatever comes back from allbookspaiurl will go back as the response for the then
     fetch(allBooksApiUrl).then(function(response){
@@ -76,7 +78,8 @@ function getBooksToDelete(){
 
 //adds a book to the books table
 function postBook(){
-    const postBookApiUrl = "https://localhost:5001/api/books";
+    //const postBookApiUrl = "https://localhost:5001/api/books";
+    const postBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     //getting the readlines from the website when a user adds a book
     const bookTitle = document.getElementById("title").value;
     const bookAuthor = document.getElementById("author").value;
@@ -119,7 +122,8 @@ else{ //add book to inventory
 deleteBook = function(id){
     console.log(id);
     //it needs to get an id so the controller knows which to delete
-    const deleteBookApiUrl = "https://localhost:5001/api/books/" + id;
+    //const deleteBookApiUrl = "https://localhost:5001/api/books/" + id;
+    const deleteBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books" + id;
     //getting the readlines from the website when a user adds a book
 
     //make call to the backend, pass it the data, and make it run the delete
@@ -138,7 +142,8 @@ deleteBook = function(id){
 
 //used to search all available books and put matching results in a table format
 function search(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     const search = document.getElementById("search").value.toLowerCase(); //to lower makes it not case sensitive
     //whatever comes back from allbookspaiurl will go back as the response for the then
     fetch(allBooksApiUrl).then(function(response){
@@ -167,7 +172,8 @@ function search(){
 
 //used to search all available books and put matching results in a table format along with a delete button
 function searchDelete(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     const search = document.getElementById("search").value.toLowerCase(); //to lower makes it not case sensitive
     //whatever comes back from allbookspaiurl will go back as the response for the then
     fetch(allBooksApiUrl).then(function(response){
@@ -260,7 +266,8 @@ function sortTable(n) {
 
 //finds the total of the inputted book and presents it to the screen
 function getTotal(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     const search = document.getElementById("search").value.toLowerCase(); //to lower makes it not case sensitive
     let html = 0.0;
     fetch(allBooksApiUrl).then(function(response){
@@ -289,7 +296,8 @@ function getTotal(){
 
 //calculate change that should be given to a customer
 function getChange(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     const search = document.getElementById("search").value.toLowerCase(); //to lower makes it not case sensitive
     const change = document.getElementById("getChange").value;
     let html = 0.0;
@@ -312,8 +320,10 @@ function getChange(){
 
 //sell a book- remove it from inventory and add it to transaction
 function bookTotal(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
-    const allTransactionsApiUrl = "https://localhost:5001/api/books/sales";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allTransactionsApiUrl = "https://localhost:5001/api/books/sales";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
+    const allTransactionsApiUrl = "https://thebookbinapi.herokuapp.com/api/books/sales";
     const search = document.getElementById("search").value.toLowerCase(); //to lower makes it not case sensitive
     //whatever comes back from allbookspaiurl will go back as the response for the then
     fetch(allBooksApiUrl).then(function(response){
@@ -364,7 +374,8 @@ function bookTotal(){
 
 //gets all books and prints to screen, along with a corresponding edit button for each
 function getBooksToEdit(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
 
     //whatever comes back from allbookspaiurl will go back as the response for the then
     fetch(allBooksApiUrl).then(function(response){
@@ -394,7 +405,8 @@ function getBooksToEdit(){
 
 //searches all books and puts every matching result in a table along with a corresponding edit button
 function searchEdit(){
-    const allBooksApiUrl = "https://localhost:5001/api/books";
+    //const allBooksApiUrl = "https://localhost:5001/api/books";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     const search = document.getElementById("search").value.toLowerCase(); //to lower makes it not case sensitive
     //whatever comes back from allbookspaiurl will go back as the response for the then
     fetch(allBooksApiUrl).then(function(response){
@@ -423,7 +435,8 @@ function searchEdit(){
 }
 
 function breakdown(){
-    const allBooksApiUrl = "https://localhost:5001/api/books/sales";
+    //const allBooksApiUrl = "https://localhost:5001/api/books/sales";
+    const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books/sales";
     const search = document.getElementById("search").value.toLowerCase(); //to lower makes it not case sensitive
     //whatever comes back from allbookspaiurl will go back as the response for the then
     fetch(allBooksApiUrl).then(function(response){
@@ -471,7 +484,8 @@ function breakdown(){
 //edits a book in inventory
 function editBook(id, isbn, title, author, genre, price){
     //pass id in with url
-    var editBookApiUrl = "https://localhost:5001/api/books/" + id;
+    var editBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books/" + id;
+    //const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     //set all text boxes to variables
     var bookIsbn = document.getElementById("isbnEdit").value;
     var bookTitle = document.getElementById("titleEdit").value;
