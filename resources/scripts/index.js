@@ -278,7 +278,7 @@ function getTotal(){
         json.forEach((book) => {
             //if we found a matching book, increase the total
             if (book.title.toLowerCase() == search || book.isbn == search){
-                 html = "$" + book.price;
+                 html = "$" + Math.round(book.price * 100)/100
                  console.log("price" + book.price);
             }
         
@@ -421,7 +421,7 @@ function searchEdit(){
         //add each book to the table, including a delete button that links to the delete book method
         json.forEach((book) => {
             if (book.title.toLowerCase() == search || book.isbn == search)(
-                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+ "$" + book.price + "</td>" + 
+                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>"+ book.genre + "</td><td>"+ "$" + Math.round(book.price * 100)/100 + "</td>" + 
                 "<td><button onclick = \"editBook("+book.id+", \'"+book.isbn+"\', \'"+book.title+"\', \'"+book.author+"\', \'"+book.genre+"\', \'"+book.price+"\')\">Edit</button></td></tr>"
             )
         });
@@ -458,7 +458,7 @@ function breakdown(){
              var month = dateString.substring(5,7);
              console.log("month" + month);
             if (book.genre.toLowerCase() == search || year == search || month == search|| yearMonth == search){ // || year == search
-                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + book.price + "</td>" + "<td>" + book.name + "</td>" + "<td>" +  book.date + "</td>";
+                html += "<tr><td>" + book.id + "</td><td>" + book.isbn + "</td><td>" + book.title + "</td><td>"+ book.author + "</td><td>" + book.genre + "</td>" + "<td>" + "$" + Math.round(book.price * 100)/100 + "</td>" + "<td>" + book.name + "</td>" + "<td>" +  book.date + "</td>";
                 revenue += book.price;
             }
         });
