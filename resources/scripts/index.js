@@ -123,7 +123,7 @@ deleteBook = function(id){
     console.log(id);
     //it needs to get an id so the controller knows which to delete
     //const deleteBookApiUrl = "https://localhost:5001/api/books/" + id;
-    const deleteBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books" + id;
+    const deleteBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books/" + id;
     //getting the readlines from the website when a user adds a book
 
     //make call to the backend, pass it the data, and make it run the delete
@@ -484,7 +484,7 @@ function breakdown(){
 //edits a book in inventory
 function editBook(id, isbn, title, author, genre, price){
     //pass id in with url
-    var editBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books/" + id;
+    var editBookApiUrl = "https://thebookbinapi.herokuapp.com/api/books" + id;
     //const allBooksApiUrl = "https://thebookbinapi.herokuapp.com/api/books";
     //set all text boxes to variables
     var bookIsbn = document.getElementById("isbnEdit").value;
