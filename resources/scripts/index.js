@@ -361,6 +361,7 @@ function bookTotal(){
                     })
                 })
                 .then((response)=>{
+                    window.location.href= "./index.html";
                     console.log(response);
                 })
             }
