@@ -450,7 +450,7 @@ function breakdown(){
         /*adding the table row and table headers*/
         html +="<tr style=\"background-color:#aac8c8;\"><th onclick = \"sortTable(0)\">ID</th><th onclick = \"sortTable(1)\">ISBN</th><th onclick = \"sortTable(2)\">Title</th><th onclick = \"sortTable(3)\">Author</th><th onclick = \"sortTable(4)\">Genre</th><th onclick = \"sortTable(5)\">Price</th><th onclick = \"sortTable(5)\">Name</th><th onclick = \"sortTable(5)\">Date</th></tr>";       
         var total = "Your total revenue for "+search+" was: ";
-        var revenue = 0;
+        var revenue = 0.0;
         json.forEach((book) => {
             //break data into different vars we can compare with the search 
              var dateString = book.date;
